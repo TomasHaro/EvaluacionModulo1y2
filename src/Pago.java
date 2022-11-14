@@ -8,10 +8,10 @@ public class Pago {
 
     //Constructor
 
-    public Pago(int demora, float importe, float interesesAdicionales) {
+    public Pago(int demora, float importe) {
         this.demora = demora;
         this.importe = importe;
-        this.interesesAdicionales = interesesAdicionales;
+        this.interesesAdicionales = (float) (demora * 0.005 * importe);
     }
 
     //Getter y Setter

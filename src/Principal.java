@@ -32,41 +32,68 @@ public class Principal {
                 switch (opcion) {
                     case 1:
                         Scanner op1 = new Scanner(System.in);
-                        System.out.println("Has seleccionado la opcion 1");
+
                         System.out.println("Ingrese el nombre del plan: ");
                         String nombre = op1.next();
-                        System.out.println("Ingrese el nombre del plan: ");
+                        System.out.println("Ingrese la deuda del plan: ");
                         float deuda = op1.nextFloat();
-                        System.out.println("Ingrese el nombre del plan: ");
+                        System.out.println("Ingrese las cuotas del plan: ");
                         int cuotas = op1.nextInt();
+
                         Plan plan = new Plan(nombre, deuda, cuotas);
                         municipalidad.agregarPlan(plan);
                         System.out.println("\n");
                         break;
                     case 2:
-                        System.out.println("Has seleccionado la opcion 2\n");
+                        Scanner op2 = new Scanner(System.in);
+                        System.out.println("Ingrese el nombre del contribuyente: ");
+                        String nombre2 = op2.next();
+
+                        if ( municipalidad.existePlan(nombre2) ){
+                            Plan planSeleccionado = municipalidad.getPlan(nombre2);
+
+                            System.out.println("Ingrese la demora del pago: ");
+                            int demora = op2.nextInt();
+                            System.out.println("Ingrese em importe del pago: ");
+                            float importe = op2.nextFloat();
+
+                            Pago pago = new Pago(demora, importe);
+                            planSeleccionado.agregarPago(pago);
+
+                        } else {
+                            System.out.println("No existe un plan con el nombre de ese constribuyente.");
+                            return;
+                        }
+                        System.out.println("\n");
                         break;
+
                     case 3:
-                        System.out.println("Has seleccionado la opcion 3\n");
+                        System.out.println("\nResumen estadistico: ");
+                        //case(4)
+                        //case (5)
+                        //case(6)
                         break;
                     case 4:
-                        System.out.println("Has seleccionado la opcion 4\n");
+                        System.out.println("\nCantidad de planes pagados en su totalidad: " + municipalidad.cantidadPlanesPagados());
                         break;
                     case 5:
-                        System.out.println("Has seleccionado la opcion 5\n");
+                        System.out.println("\nSumatoria de deudas registradas: " + municipalidad.sumatoriaDeuda());
                         break;
                     case 6:
-                        System.out.println("Has seleccionado la opcion 6\n");
+                        Scanner op3 = new Scanner(System.in);
+                        System.out.println("Ingrese el nombre del contribuyente: ");
+                        String nombre3 = op3.next();
+                        municipalidad.listadoPagosContribuyente(nombre3);
                         break;
                     case 7:
-                        System.out.println("Has seleccionado la opcion 7\n");
+                        System.out.println("\nPromedio general de intereses adicionales cobrados: " + municipalidad.promedioIntereses());
                         break;
                     case 8:
                         System.out.println("Programa finalizado!");
                         salir = true;
                         break;
                     default:
-                        System.out.println("Solo números entre 1 y 4\n");
+                        System.out.println("Solo números entre 1 y 8\n");
                 }
             } catch (InputMismatchException e) {
                 System.out.println("Debes insertar un número\n");

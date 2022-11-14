@@ -58,15 +58,21 @@ public class Plan {
     public void agregarPago(Pago pago) { pagos.add(pago); }
 
     public boolean estaPagadoTotalmente(){
-        return false;
+        if (pagos.size() == cuotas) {
+            return pagos.stream().allMatch(x -> x.getImporte() == (deuda/cuotas));
+        }
+        else{
+            return false;
+        }
     }
 
     public String listadoPagos(){
+        //return pagos.stream().filter(x -> x );
         return null;
     }
 
     public float sumaInteresesCobrados(){
-        return 0;
+        return (float) pagos.stream().mapToDouble(x -> x.getInteresesAdicionales()).sum();
     }
 
     @Override
