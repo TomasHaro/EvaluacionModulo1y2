@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class Municipalidad {
 
@@ -32,11 +34,17 @@ public class Municipalidad {
         return (float) (planes.stream().mapToDouble(x -> x.getDeuda()).sum());
     }
 
-    public String listadoPagosContribuyente(String nombre3){
+    public String listadoPagosContribuyente(String nombre){
         // (existePlan(nombre3))
-
         //return planes.stream().filter(x -> x.getNombre().equals(nombre3)).toString();
-        return nombre3;
+        if (existePlan(nombre)) {
+            List<Plan> pagosxContribuyente = planes.stream().filter(x -> x.getNombre().equals(nombre)).toList();
+            return pagosxContribuyente.stream().map(x -> x.listadoPagos()).collect(Collectors.toList()).toString();
+        }
+        else {
+            //return System.out.println("\nSumatoria de deudas registradas: ");
+        }
+        return nombre;
     }
 
     public float promedioIntereses(){

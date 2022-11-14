@@ -5,6 +5,18 @@ public class Principal {
 
     private static Municipalidad municipalidad = new Municipalidad();
 
+    public static void case4(){
+        System.out.println("\nCantidad de planes pagados en su totalidad: " + municipalidad.cantidadPlanesPagados());
+    }
+
+    public static void case5(){
+        System.out.println("\nSumatoria de deudas registradas: " + municipalidad.sumatoriaDeuda());
+    }
+
+    public static void case6(String nombre){
+        System.out.println(municipalidad.listadoPagosContribuyente(nombre));
+    }
+
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
@@ -69,21 +81,24 @@ public class Principal {
 
                     case 3:
                         System.out.println("\nResumen estadistico: ");
-                        //case(4)
-                        //case (5)
-                        //case(6)
+                        case4();
+                        case5();
+                        Scanner op3 = new Scanner(System.in);
+                        System.out.println("Ingrese el nombre del contribuyente que desea ver los pagos: ");
+                        String nombre4 = op3.next();
+                        case6(nombre4);
                         break;
                     case 4:
-                        System.out.println("\nCantidad de planes pagados en su totalidad: " + municipalidad.cantidadPlanesPagados());
+                        case4();
                         break;
                     case 5:
-                        System.out.println("\nSumatoria de deudas registradas: " + municipalidad.sumatoriaDeuda());
+                        case5();
                         break;
                     case 6:
-                        Scanner op3 = new Scanner(System.in);
+                        Scanner op6 = new Scanner(System.in);
                         System.out.println("Ingrese el nombre del contribuyente: ");
-                        String nombre3 = op3.next();
-                        municipalidad.listadoPagosContribuyente(nombre3);
+                        String nombre3 = op6.next();
+                        case6(nombre3);
                         break;
                     case 7:
                         System.out.println("\nPromedio general de intereses adicionales cobrados: " + municipalidad.promedioIntereses());

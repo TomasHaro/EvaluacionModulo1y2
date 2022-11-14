@@ -45,7 +45,7 @@ public class Plan {
         this.cuotas = cuotas;
     }
 
-    public ArrayList<Pago> getPagos() {
+    public ArrayList<Pago> listadoPagos() {
         return pagos;
     }
 
@@ -66,10 +66,13 @@ public class Plan {
         }
     }
 
-    public String listadoPagos(){
+    //public ArrayList<Pago> listadoPagos(){
         //return pagos.stream().filter(x -> x );
-        return null;
-    }
+        //ArrayList<Pago> listadoPagos = new ArrayList<>();
+        //pagos.stream().forEach(x -> listadoPagos.add(x));
+        //return listadoPagos;
+
+    //}
 
     public float sumaInteresesCobrados(){
         return (float) pagos.stream().mapToDouble(x -> x.getInteresesAdicionales()).sum();
