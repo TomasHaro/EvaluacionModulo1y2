@@ -14,7 +14,12 @@ public class Principal {
     }
 
     public static void case6(String nombre){
-        System.out.println(municipalidad.listadoPagosContribuyente(nombre));
+        if (municipalidad.listadoPagosContribuyente(nombre) == null){
+            System.out.println("No existe contribuyente");
+        }
+        else{
+            System.out.println(municipalidad.listadoPagosContribuyente(nombre));
+        }
     }
 
     public static void main(String[] args) {

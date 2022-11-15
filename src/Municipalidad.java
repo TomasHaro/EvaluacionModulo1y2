@@ -42,9 +42,9 @@ public class Municipalidad {
             return pagosxContribuyente.stream().map(x -> x.listadoPagos()).collect(Collectors.toList()).toString();
         }
         else {
-            //return System.out.println("\nSumatoria de deudas registradas: ");
+
+            return null;
         }
-        return nombre;
     }
 
     public float promedioIntereses(){
