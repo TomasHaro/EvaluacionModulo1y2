@@ -53,9 +53,7 @@ public class Municipalidad {
 
     @Override
     public String toString() {
-        return "Municipalidad{" +
-                "planes=" + planes +
-                '}';
+        return "Planes=" + planes ;
     }
 
     public boolean existePlan(String nombre) {

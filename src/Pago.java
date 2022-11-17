@@ -42,10 +42,8 @@ public class Pago {
 
     @Override
     public String toString() {
-        return "Pago{" +
-                "demora=" + demora +
+        return "Pagos: " + "demora=" + demora +
                 ", importe=" + importe +
-                ", interesesAdicionales=" + interesesAdicionales +
-                '}';
+                ", interesesAdicionales=" + interesesAdicionales ;
     }
 }

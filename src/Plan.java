@@ -80,11 +80,9 @@ public class Plan {
 
     @Override
     public String toString() {
-        return "Plan{" +
-                "nombre='" + nombre + '\'' +
+        return  "nombre='" + nombre + '\'' +
                 ", deuda=" + deuda +
                 ", cuotas=" + cuotas +
-                ", pagos=" + pagos +
-                '}';
+                ", pagos=" + pagos ;
     }
 }
